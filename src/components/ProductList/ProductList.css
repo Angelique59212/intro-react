@@ -1,0 +1,25 @@
+.products-list {
+    list-style-type: none;
+}
+
+.product {
+    font-weight: bold;
+    color: #545454;
+}
+
+.in-stock {
+    color: mediumseagreen;
+    font-size: 10px;
+}
+
+.out-of-stock {
+    font-size: 8px;
+    color: indianred;
+}
+
+.product .out-of-stock {
+    text-decoration: line-through;
+    text-decoration-color: indianred;
+    color: inherit;
+    font-size: inherit;
+}
