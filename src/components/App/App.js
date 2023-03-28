@@ -5,6 +5,8 @@ import {Header} from "../Header/Header";
 import {ProductList} from "../ProductList/ProductList";
 import {Fragment} from "react";
 import {Sidebar} from "../Sidebar/Sidebar";
+import {Test} from "../Test/Test";
+import {QuantitySelector} from "../QuantitySelector/QuantitySelector";
 
 // function App() {
 //   return (
@@ -28,6 +30,8 @@ function App() {
                 <a href="https://twitter.com/?lang=fr">Lien twitter</a>
                 <a href="https://fr.linkedin.com/">Lien linkedin</a>
             </Sidebar>
+            <QuantitySelector/>
+            <Test/>
         </>
   );
 }
