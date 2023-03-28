@@ -1,15 +1,11 @@
 import './Cart.css';
-import {Product} from "../Product/Product";
-import {CartItem} from '../CartItem/cartItem';
+import {CartItem} from '../CartItem/CartItem';
 
-export const Cart = () => {
-    const products = [
-        {product: new Product(1, 'Produit1'), quantity: 2},
-        {product: new Product(2, 'Produit4'), quantity: 4},
-        {product: new Product(3, 'Produit3'), quantity: 4},
-    ];
-    function handleCartFooterButtonClick() {
-        console.log('Le bouton vider le panier a été cliqué');
+export const Cart = function ({products, setIsProductUpdated})  {
+
+    function handleClick(e) {
+        products.map(product => product.cart = 0);
+        setIsProductUpdated(true);
     }
 
     return(
@@ -18,12 +14,12 @@ export const Cart = () => {
                 <h2>Vos articles</h2>
             </div>
             <div className="cart-content">
-                {products.map(product =>
-                    <CartItem key={product.product.id} product={product.product} quantity={product.quantity}/>
+                {products.map( product =>
+                    product.cart > 0 && <CartItem key={product.id} product={product}/>
                 )}
             </div>
             <div className="cart-footer">
-                <button onClick={handleCartFooterButtonClick}>Vider le panier</button>
+                <button onClick={handleClick}>Vider le panier</button>
             </div>
         </div>
     )
