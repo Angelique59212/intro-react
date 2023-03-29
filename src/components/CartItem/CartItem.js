@@ -4,7 +4,7 @@ import trash from './../../assets/img/trash.svg';
 export const CartItem = function ({product}) {
     return(
         <div className='cart-item'>
-            <img src={trash} alt="Supprimer"/>
+            <img className='trash' src={trash} alt="Supprimer"/>
 
             <div className='cart-item-product'>
                 <p>{product.name}</p>
