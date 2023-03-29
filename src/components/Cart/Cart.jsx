@@ -2,7 +2,6 @@ import './Cart.css';
 import {CartItem} from '../CartItem/CartItem';
 
 export const Cart = function ({products, setIsProductUpdated})  {
-
     function handleClick(e) {
         products.map(product => product.cart = 0);
         setIsProductUpdated(true);
