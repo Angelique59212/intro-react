@@ -16,11 +16,14 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="user-account" element={<UserAccount />} />
-        <Route path="/promotions" element={<Promotions />} />
+        <Route path="/promotions" element={<Promotions />} >
+          <Route path=":productId" element={<ProductDescription/>}/>
+        </Route>
         <Route
           path="/descriptions/:productId"
           element={<ProductDescription />}
         />
+        <Route path="*" element={<div>Erreur404, cette page n'existe pas!</div>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

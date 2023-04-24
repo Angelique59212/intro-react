@@ -1,7 +1,9 @@
 import { promotions } from "../../promotions";
-import { Link } from "react-router-dom";
+import {NavLink, Outlet, useSearchParams} from "react-router-dom";
 
 export const Promotions = function () {
+    const [searchParams, setSearchParams] = useSearchParams();
+
   return (
     <>
       <h1>Nos promotions du moment</h1>
@@ -12,12 +14,20 @@ export const Promotions = function () {
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td>
-                <Link to={"/description/" + product.id}>Voir description</Link>
+                <NavLink
+                    style={{ background: searchParams.get("color")}}
+                    to={`/promotions/${product.id}`}
+                >
+                    Voir description
+                </NavLink>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+        <button onClick={() => setSearchParams({})}>Effacer le paramètre</button>
+        <button onClick={() => setSearchParams({color: "white", background: "black"})}>Couleur blnche et background noir</button>
+      <Outlet/>
     </>
   );
 };

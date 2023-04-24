@@ -1,6 +1,6 @@
 import "./Product.css";
 
-export const Product = function ({ product, setIsProductUpdated }) {
+export const Product = function ({ product, setIsProductUpdated = null }) {
   function handleMinusClick(e) {
     if (product.cart > 0) {
       product.cart -= 1;
@@ -26,11 +26,13 @@ export const Product = function ({ product, setIsProductUpdated }) {
         <p className="product-description">{product.description}</p>
 
         <div className="product-footer">
-          <div className="quantity-selector">
-            <button onClick={handleMinusClick}>-</button>
-            <div>{product.cart}</div>
-            <button onClick={handlePlusClick}>+</button>
-          </div>
+          {null !== setIsProductUpdated && (
+              <div className="quantity-selector">
+                <button onClick={handleMinusClick}>-</button>
+                <div>{product.cart}</div>
+                <button onClick={handlePlusClick}>+</button>
+              </div>
+          )}
           <span className="product-price">${product.price}</span>
         </div>
       </div>
